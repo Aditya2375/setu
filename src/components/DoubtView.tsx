@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { DemoDoubt, DemoAdvice } from "@/lib/demo";
@@ -40,7 +41,7 @@ function AdviceCard({ a, rank }: { a: DemoAdvice; rank: number }) {
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
         <span className="avatar">{a.author.name[0]}</span>
         <div>
-          <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{a.author.name}</span>
+          <Link href={`/profile/${a.author.username}`} style={{ fontWeight: 600, fontSize: "0.9rem", color: "inherit" }}>{a.author.name}</Link>
           <span className="mono" style={{ fontSize: "0.65rem", color: "var(--muted)", marginLeft: "0.5rem" }}>
             {a.author.role}{a.author.flair ? " · trusted" : ""}
           </span>

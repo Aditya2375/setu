@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Shortcuts from "@/components/Shortcuts";
 
 export const metadata: Metadata = {
   title: { default: "Setu - the bridge between juniors and seniors", template: "%s | Setu" },
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="grid-bg" aria-hidden="true" />
         {children}
+          <Shortcuts />
       </body>
     </html>
   );

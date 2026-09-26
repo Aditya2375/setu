@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { personas } from "@/lib/demo";
 
@@ -27,7 +28,7 @@ export default function Leaderboard() {
               <span className="avatar">{b.p.name[0]}</span>
               <div style={{ minWidth: 0 }}>
                 <p style={{ margin: 0, fontWeight: 600, fontSize: "0.95rem" }}>
-                  {b.p.name}
+                  <Link href={`/profile/${b.p.username}`} style={{ color: "inherit" }}>{b.p.name}</Link>
                   {b.p.flair && <span className="tag tag--accent mono" style={{ marginLeft: "0.6rem", fontSize: "0.55rem" }}>trusted</span>}
                 </p>
                 <p className="mono" style={{ margin: "0.15rem 0 0", fontSize: "0.65rem", color: "var(--muted)" }}>

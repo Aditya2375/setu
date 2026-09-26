@@ -11,9 +11,9 @@ export default function Feed() {
       <Navbar active="feed" />
       <main className="wrap">
         <p className="label">trending this week</p>
-        <div style={{ display: "flex", gap: "1px", background: "var(--line)", margin: "0.75rem 0 2rem", overflowX: "auto" }}>
-          {trending.map((d) => (
-            <Link key={d.id} href={`/doubt/${d.id}`} className="card" style={{ padding: "0.9rem 1.1rem", minWidth: 240, flex: 1 }}>
+        <div className="hscroll" style={{ display: "flex", gap: "1px", background: "var(--line)", margin: "0.75rem 0 2rem", overflowX: "auto" }}>
+          {trending.map((d, i) => (
+            <Link key={d.id} href={`/doubt/${d.id}`} className={i === 0 ? "card tilt" : "card"} style={{ padding: "0.9rem 1.1rem", minWidth: 240, flex: 1 }}>
               <p style={{ margin: 0, fontSize: "0.85rem", fontWeight: 600 }}>{d.title}</p>
               <p className="mono" style={{ margin: "0.4rem 0 0", fontSize: "0.65rem", color: "var(--accent)" }}>
                 {d.follows} following
@@ -31,6 +31,10 @@ export default function Feed() {
           </span>
         </div>
 
+        <p className="note" style={{ margin: "0.6rem 0 0" }}>
+          {demoDoubts.filter((d) => !d.solved).length} open right now - the one everyone is watching has {[...demoDoubts].sort((a, b) => b.follows - a.follows)[0].follows} followers. of course it does.
+        </p>
+
         <div style={{ marginTop: "1rem", borderTop: "1px solid var(--line)" }}>
           {demoDoubts.map((d) => (
             <Link key={d.id} href={`/doubt/${d.id}`} className="card doubt-card">
@@ -39,7 +43,7 @@ export default function Feed() {
                   {d.solved ? "Solved" : "Open"}
                 </span>
                 {d.tags.map((t) => <span key={t} className="tag">{t}</span>)}
-                <span className="mono" style={{ marginLeft: "auto", fontSize: "0.65rem", color: "var(--muted)" }}>{d.ago} ago</span>
+                <span className="mono" style={{ marginLeft: "auto", fontSize: "0.65rem", color: "var(--muted)" }}>{d.ago}</span>
               </div>
               <h2 className="doubt-title">{d.title}</h2>
               <div className="doubt-meta mono" style={{ fontSize: "0.7rem", color: "var(--muted)" }}>

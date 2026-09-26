@@ -147,3 +147,31 @@ input, textarea, select { font-family: inherit; }
   .nav-links { gap: 0.9rem; }
   .wrap { padding: 1.25rem 1rem 5rem; }
 }
+/* --- hand-made layer: editorial quirks, margin notes, stamps --- */
+.note {
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted);
+  text-transform: lowercase; letter-spacing: 0.04em;
+}
+.note::before { content: '* '; color: var(--accent); }
+.stamp {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+  border: 1px dashed var(--accent); padding: 0.45em 0.9em;
+  transform: rotate(-2.5deg);
+}
+.hairline--dash { border-top: 1px dashed var(--line); }
+.rule-row {
+  display: grid; grid-template-columns: 64px 1fr; gap: 1.25rem;
+  padding: 1.35rem 0; border-top: 1px solid var(--line); align-items: baseline;
+}
+.rule-row:last-child { border-bottom: 1px solid var(--line); }
+.rule-num {
+  font-family: var(--font-display); font-size: 1.6rem; color: var(--line);
+  line-height: 1;
+}
+.rule-row:hover .rule-num { color: var(--accent); }
+.tilt { transform: rotate(-0.7deg); }
+.tick { color: var(--accent); }
+
+.hscroll { scrollbar-width: none; -ms-overflow-style: none; }
+.hscroll::-webkit-scrollbar { display: none; }

@@ -22,7 +22,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d1", author: personas.rohan, title: "How do I actually start competitive programming without dying inside?",
     body: "Second sem, know basic Python. Everyone says 'do CP' but Codeforces problems feel impossible. Where do you actually START? Like what did week 1 look like for you?",
-    tags: ["academics", "coding"], solved: true, follows: 34, ago: "3d",
+    tags: ["academics", "coding"], solved: true, follows: 34, ago: "tue, 11:58 PM",
     advice: [
       { id: "a1", author: personas.arjun, stars: 4.8, ratings: 41, accepted: true,
         body: "Week 1 for me was NOT Codeforces. It was solving 5 easy problems a day on the same site until loops/arrays felt boring. Then Codeforces Div 4 contests only. The mistake everyone makes is opening a Div 2 problem, failing, and quitting. Rate yourself at 800 and stay in the 800-1000 pool for a month. It compounds stupidly fast." },
@@ -35,7 +35,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d2", author: null, anonymous: true, title: "Feel like I picked the wrong branch. Anyone else?",
     body: "Took CS because everyone said to. Six months in and I dread every class. I like the design stuff we do in clubs way more. Is this normal first-year panic or an actual sign?",
-    tags: ["life", "career"], solved: false, follows: 58, ago: "1d",
+    tags: ["life", "career"], solved: false, follows: 58, ago: "yesterday, 4:31 PM",
     advice: [
       { id: "a4", author: personas.sneha, stars: 4.9, ratings: 52,
         body: "First-year panic is real but so is your signal. Do this: give CS one honest semester where you build things YOU pick (not assignments), and keep one foot in the design club. By June you'll know which room you keep walking into voluntarily. That's your answer. Branch matters way less than what you build in either." },
@@ -46,7 +46,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d3", author: personas.isha, title: "Best way to learn guitar alongside a full CS schedule?",
     body: "Bought a guitar in August. It's been decoration since September. People who actually learned an instrument in college - how? 30 mins a day? Weekends? Classes worth it?",
-    tags: ["music", "hobbies"], solved: true, follows: 21, ago: "5d",
+    tags: ["music", "hobbies"], solved: true, follows: 21, ago: "last fri, 8:12 PM",
     advice: [
       { id: "a6", author: personas.ananya, stars: 4.7, ratings: 29, accepted: true,
         body: "20 minutes EVERY day beats 3 hours on Sunday, no contest. Keep the guitar within arm's reach of your desk - the friction of opening a case kills more practice than anything. First month: just chord transitions, A-D-E, until your fingers stop hurting. Songs come after that. YouTube (JustinGuitar) is genuinely enough, no classes needed." },
@@ -57,7 +57,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d4", author: personas.kabir, title: "How much do 3rd year internships actually care about CGPA?",
     body: "Hearing everything from '8.5+ or forget it' to 'nobody checks'. What's the real cutoff situation for decent companies? And what balances out an average CGPA?",
-    tags: ["academics", "career", "internships"], solved: false, follows: 87, ago: "6h",
+    tags: ["academics", "career", "internships"], solved: false, follows: 87, ago: "today, 2:14 AM",
     advice: [
       { id: "a8", author: personas.dev, stars: 4.6, ratings: 44,
         body: "Reality: most decent companies filter at 7.5-8.0, a few fancy ones at 8.5+. But here's what nobody tells you - after the filter, CGPA is done, nobody asks again. What balances average grades: one project you can talk about for 20 minutes without notes. Depth beats GPA every interview I've sat through." },
@@ -68,7 +68,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d5", author: null, anonymous: true, title: "Hostel roommate situation is getting unbearable. What are my options?",
     body: "Don't want to start drama but sleep schedule is destroyed, stuff goes missing, and talking hasn't worked. Can you actually change rooms mid-semester?",
-    tags: ["hostel", "life"], solved: true, follows: 19, ago: "2d",
+    tags: ["hostel", "life"], solved: true, follows: 19, ago: "sun, 10:40 PM",
     advice: [
       { id: "a10", author: personas.sneha, stars: 4.5, ratings: 26, accepted: true,
         body: "Yes, you can change mid-semester - warden office, written request, they approve within a week if you're calm and factual (not complaining about the person, just the situation). Missing stuff: mention it to the warden privately NOW, paper trail matters if it escalates. You're not causing drama, you're sleeping." },
@@ -77,7 +77,7 @@ export const demoDoubts: DemoDoubt[] = [
   {
     id: "d6", author: personas.rohan, title: "Football trials next week - what do selectors actually watch for?",
     body: "College team selections. I play wing. Fitness is decent, first touch is okay-ish. What makes them pick one winger over another?",
-    tags: ["football", "sports"], solved: false, follows: 12, ago: "8h",
+    tags: ["football", "sports"], solved: false, follows: 12, ago: "today, 12:03 AM",
     advice: [
       { id: "a11", author: personas.ananya, stars: 4.3, ratings: 15,
         body: "Talked to the team captain about this once: they watch what you do OFF the ball. Everyone looks good with it. Positioning when you don't have it, tracking back after losing it, and whether you lift your head before receiving. First touch matters but decision speed matters more." },

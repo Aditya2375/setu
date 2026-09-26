@@ -98,7 +98,7 @@ export default function DoubtView({ doubt }: { doubt: DemoDoubt }) {
         <div className="doubt-meta" style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", alignItems: "center" }}>
           <span className={`tag ${doubt.solved ? "badge-solved" : "badge-open"}`}>{doubt.solved ? "Solved" : "Open"}</span>
           {doubt.tags.map((t) => <span key={t} className="tag">{t}</span>)}
-          <span className="mono" style={{ marginLeft: "auto", fontSize: "0.65rem", color: "var(--muted)" }}>{doubt.ago} ago</span>
+          <span className="mono" style={{ marginLeft: "auto", fontSize: "0.65rem", color: "var(--muted)" }}>{doubt.ago}</span>
         </div>
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem, 4vw, 2rem)", lineHeight: 1.15, margin: "0.9rem 0", textTransform: "none" }}>
           {doubt.title}

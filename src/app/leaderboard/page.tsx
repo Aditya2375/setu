@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { personas } from "@/lib/demo";
+import { fetchLiveBoard, type BoardEntry } from "@/lib/live";
 
-export const metadata = { title: "Leaderboard" };
-
-const board = [
+const demoBoard: BoardEntry[] = [
   { p: personas.sneha, avg: 4.9, ratings: 132, advice: 31, streak: "12w" },
   { p: personas.dev, avg: 4.7, ratings: 118, advice: 42, streak: "9w" },
   { p: personas.arjun, avg: 4.6, ratings: 96, advice: 27, streak: "8w" },
@@ -14,6 +15,10 @@ const board = [
 ];
 
 export default function Leaderboard() {
+  const [board, setBoard] = useState<BoardEntry[]>(demoBoard);
+  useEffect(() => {
+    fetchLiveBoard().then((b) => { if (b && b.length) setBoard(b); });
+  }, []);
   return (
     <>
       <Navbar active="board" />
@@ -32,7 +37,7 @@ export default function Leaderboard() {
                   {b.p.flair && <span className="tag tag--accent mono" style={{ marginLeft: "0.6rem", fontSize: "0.55rem" }}>trusted</span>}
                 </p>
                 <p className="mono" style={{ margin: "0.15rem 0 0", fontSize: "0.65rem", color: "var(--muted)" }}>
-                  {b.advice} advice · {b.ratings} ratings · {b.streak} streak
+                  {b.advice} advice · {b.ratings} ratings{b.streak !== "-" ? ` · ${b.streak} streak` : ""}
                 </p>
               </div>
               <span className="mono" style={{ marginLeft: "auto", color: "var(--accent)", fontSize: "1rem" }}>

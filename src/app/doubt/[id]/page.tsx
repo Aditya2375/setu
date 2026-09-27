@@ -1,6 +1,5 @@
-import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
-import DoubtView from "@/components/DoubtView";
+import LiveDoubt from "@/components/LiveDoubt";
 import { demoDoubts } from "@/lib/demo";
 
 export function generateStaticParams() {
@@ -10,27 +9,21 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const d = demoDoubts.find((x) => x.id === id);
-  if (!d) return {};
+  if (!d) return { title: "Doubt" };
   return {
     title: d.title,
-    openGraph: {
-      title: d.title,
-      description: d.body.slice(0, 140),
-      type: "article",
-      siteName: "Setu",
-    },
+    openGraph: { title: d.title, description: d.body.slice(0, 140), type: "article", siteName: "Setu" },
   };
 }
 
 export default async function DoubtPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const doubt = demoDoubts.find((x) => x.id === id);
-  if (!doubt) notFound();
+  const demo = demoDoubts.find((x) => x.id === id) ?? null;
   return (
     <>
       <Navbar active="feed" />
       <main className="wrap" style={{ maxWidth: 780 }}>
-        <DoubtView doubt={doubt} />
+        <LiveDoubt id={id} demo={demo} />
       </main>
     </>
   );

@@ -1,11 +1,24 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { demoDoubts, demoTrending } from "@/lib/demo";
-
-export const metadata = { title: "Feed" };
+import { demoDoubts, demoTrending, type DemoDoubt } from "@/lib/demo";
+import { fetchLiveDoubts } from "@/lib/live";
 
 export default function Feed() {
-  const trending = demoDoubts.filter((d) => demoTrending.includes(d.id));
+  const [doubts, setDoubts] = useState<DemoDoubt[]>(demoDoubts);
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    fetchLiveDoubts().then((d) => {
+      if (d && d.length) { setDoubts(d); setLive(true); }
+    });
+  }, []);
+  const trendingIds = live
+    ? [...doubts].sort((a, b) => b.follows - a.follows).slice(0, 3).map((d) => d.id)
+    : demoTrending;
+  const trending = doubts.filter((d) => trendingIds.includes(d.id));
+  const open = doubts.filter((d) => !d.solved).length;
+  const most = doubts.length ? [...doubts].sort((a, b) => b.follows - a.follows)[0].follows : 0;
   return (
     <>
       <Navbar active="feed" />
@@ -32,11 +45,11 @@ export default function Feed() {
         </div>
 
         <p className="note" style={{ margin: "0.6rem 0 0" }}>
-          {demoDoubts.filter((d) => !d.solved).length} open right now - the one everyone is watching has {[...demoDoubts].sort((a, b) => b.follows - a.follows)[0].follows} followers. of course it does.
+          {open} open right now - the one everyone is watching has {most} followers. of course it does.
         </p>
 
         <div style={{ marginTop: "1rem", borderTop: "1px solid var(--line)" }}>
-          {demoDoubts.map((d) => (
+          {doubts.map((d) => (
             <Link key={d.id} href={`/doubt/${d.id}`} className="card doubt-card">
               <div className="doubt-meta">
                 <span className={`tag ${d.solved ? "badge-solved" : "badge-open"}`} style={{ fontSize: "0.6rem" }}>

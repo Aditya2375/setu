@@ -1,16 +1,25 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { demoDoubts } from "@/lib/demo";
+import { demoDoubts, type DemoDoubt } from "@/lib/demo";
+import { searchLive } from "@/lib/live";
 
 export default function Search() {
   const [q, setQ] = useState("");
+  const [liveHits, setLiveHits] = useState<DemoDoubt[] | null>(null);
   const needle = q.trim().toLowerCase();
+  useEffect(() => {
+    setLiveHits(null);
+    if (!needle) return;
+    const t = setTimeout(() => {
+      searchLive(q).then((r) => { if (r) setLiveHits(r); });
+    }, 300);
+    return () => clearTimeout(t);
+  }, [q, needle]);
   const hits = needle
-    ? demoDoubts.filter((d) =>
-        [d.title, d.body, d.tags.join(" ")].join(" ").toLowerCase().includes(needle)
-      )
+    ? liveHits ?? demoDoubts.filter((d) =>
+        [d.title, d.body, d.tags.join(" ")].join(" ").toLowerCase().includes(needle))
     : [];
   return (
     <>

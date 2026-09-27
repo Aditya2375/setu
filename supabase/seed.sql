@@ -49,7 +49,7 @@ values
 
 -- identities rows are what Supabase Auth actually looks up at login.
 insert into auth.identities (id, user_id, provider_id, identity_data, provider, last_sign_in_at, created_at, updated_at)
-select '5e7a1000-0000-4000-8000-00000000000' || substr(u.id::text, 35, 1),
+select ('5e7a1000-0000-4000-8000-00000000000' || right(u.id::text, 1))::uuid,
        u.id, u.email,
        jsonb_build_object('sub', u.id::text, 'email', u.email),
        'email', now(), now(), now()

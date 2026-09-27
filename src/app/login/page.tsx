@@ -14,6 +14,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [confirmSent, setConfirmSent] = useState(false);
 
   async function submit() {
     setBusy(true);
@@ -27,9 +28,10 @@ export default function Login() {
       const uname = username.trim().toLowerCase().replace(/[^a-z0-9_]/g, "");
       if (!name.trim() || !uname) { setBusy(false); return setError("name and username are needed"); }
       if (password.length < 6) { setBusy(false); return setError("password needs 6+ characters"); }
-      const err = await signUp(email.trim(), password, uname, name.trim(), role);
+      const r = await signUp(email.trim(), password, uname, name.trim(), role);
       setBusy(false);
-      if (err) return setError(err);
+      if (r.error) return setError(r.error);
+      if (r.needsConfirm) return setConfirmSent(true);
       router.push("/feed");
     }
   }
@@ -41,6 +43,12 @@ export default function Login() {
         {mode === "login" ? "Log in" : "Sign up"}
       </h1>
       <div className="card chamfer" style={{ padding: "1.5rem" }}>
+        {confirmSent ? (
+          <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>
+            Check your inbox - we sent a confirmation link to <b>{email}</b>. Click it, then log in.
+          </p>
+        ) : (
+        <>
         {mode === "signup" && (
           <>
             <label className="mono" style={{ fontSize: "0.65rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.1em" }}>name</label>
@@ -80,6 +88,8 @@ export default function Login() {
             {mode === "login" ? "Sign up" : "Log in"}
           </button>
         </p>
+        </>
+        )}
       </div>
       <p style={{ textAlign: "center", marginTop: "1rem" }}>
         <Link href="/feed" className="mono" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>browse without an account →</Link>

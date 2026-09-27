@@ -208,14 +208,15 @@ export async function signIn(email: string, password: string): Promise<string | 
   return error ? error.message : null;
 }
 
-export async function signUp(email: string, password: string, username: string, displayName: string, role: string): Promise<string | null> {
+export async function signUp(email: string, password: string, username: string, displayName: string, role: string): Promise<{ error?: string; needsConfirm?: boolean }> {
   const sb = getSupabase();
-  if (!sb) return "backend not configured";
-  const { error } = await sb.auth.signUp({
+  if (!sb) return { error: "backend not configured" };
+  const { data, error } = await sb.auth.signUp({
     email, password,
     options: { data: { username, display_name: displayName, role } },
   });
-  return error ? error.message : null;
+  if (error) return { error: error.message };
+  return { needsConfirm: !data.session };
 }
 
 export async function signOut(): Promise<void> {

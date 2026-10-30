@@ -2,6 +2,8 @@
 
 The bridge between juniors and seniors. Post a doubt about anything - academics, music, sport, hostel life - seniors and peers answer, the community scores every answer, the best advice rises.
 
+Live: https://setu-bice-nine.vercel.app
+
 ## Stack
 
 - Next.js 16 + TypeScript + Tailwind (custom design system)

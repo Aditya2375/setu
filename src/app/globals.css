@@ -175,3 +175,7 @@ input, textarea, select { font-family: inherit; }
 
 .hscroll { scrollbar-width: none; -ms-overflow-style: none; }
 .hscroll::-webkit-scrollbar { display: none; }
+
+@media (max-width: 640px) {
+  .hero-stamp { position: static !important; display: inline-block; margin: 0 0 0.75rem; }
+}

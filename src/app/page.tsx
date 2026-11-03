@@ -12,7 +12,7 @@ export default function Landing() {
         <h1 className="hero-title" style={{ margin: "1rem 0", maxWidth: "12ch" }}>
           Ask anything.<br />Get advice that's <em>rated</em><br />worth hearing.
         </h1>
-        <span className="stamp" style={{ position: "absolute", top: "0.4rem", right: "8%" }}>
+        <span className="stamp hero-stamp" style={{ position: "absolute", top: "0.4rem", right: "8%" }}>
           est. somewhere between midnight & 4 AM
         </span>
       </div>

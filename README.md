@@ -2,7 +2,7 @@
 
 The bridge between juniors and seniors. Post a doubt about anything - academics, music, sport, hostel life - seniors and peers answer, the community scores every answer, the best advice rises.
 
-Live: https://setu-bice-nine.vercel.app
+Live: https://setu-aditya-kulkarni.vercel.app
 
 ## Stack
 

@@ -3,12 +3,15 @@ import "./globals.css";
 import Shortcuts from "@/components/Shortcuts";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://setu-aditya-kulkarni.vercel.app"),
   title: { default: "Setu - the bridge between juniors and seniors", template: "%s | Setu" },
   description:
     "Post a doubt about anything - academics, music, sport, life on campus. Seniors and peers answer, the community scores the advice, the best rises.",
   manifest: "/manifest.webmanifest",
+  alternates: { canonical: "/" },
   openGraph: {
     siteName: "Setu",
+    url: "/",
     title: "Setu - the bridge between juniors and seniors",
     description: "Ask anything. Get advice that the community has rated worth listening to.",
     type: "website",
